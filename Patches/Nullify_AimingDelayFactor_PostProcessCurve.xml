@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Replace AimingDelayFactor's postProcessCurve with a (near) identity curve -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/StatDef[defName="AimingDelayFactor"]/postProcessCurve</xpath>
+    <value>
+      <postProcessCurve>
+        <points>
+          <!-- Keep it linear: input x maps to output y ~= x -->
+          <li>(0, 0)</li>
+          <li>(20, 20)</li>
+		  <li>(30, 30)</li>
+        </points>
+      </postProcessCurve>
+    </value>
+  </Operation>
+</Patch>

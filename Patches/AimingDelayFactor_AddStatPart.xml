@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- If <parts> exists, append our StatPart; otherwise create it -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/StatDef[defName="AimingDelayFactor"]/parts</xpath>
+
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/StatDef[defName="AimingDelayFactor"]/parts</xpath>
+      <value>
+        <li Class="TSA.CE.SkillAffectsWarmup.StatPart_ShootingAimingDelay"/>
+      </value>
+    </match>
+
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/StatDef[defName="AimingDelayFactor"]</xpath>
+      <value>
+        <parts>
+          <li Class="TSA.CE.SkillAffectsWarmup.StatPart_ShootingAimingDelay"/>
+        </parts>
+      </value>
+    </nomatch>
+  </Operation>
+</Patch>
